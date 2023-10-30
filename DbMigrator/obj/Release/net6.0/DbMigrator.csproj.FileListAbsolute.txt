@@ -1,0 +1,13 @@
+F:\srcs\DepersonalizationPersonalData\DbMigrator\bin\Release\net6.0\appsettings.json
+F:\srcs\DepersonalizationPersonalData\DbMigrator\bin\Release\net6.0\DbMigrator.deps.json
+F:\srcs\DepersonalizationPersonalData\DbMigrator\bin\Release\net6.0\DbMigrator.dll
+F:\srcs\DepersonalizationPersonalData\DbMigrator\bin\Release\net6.0\DbMigrator.pdb
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.csproj.AssemblyReference.cache
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.GeneratedMSBuildEditorConfig.editorconfig
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.AssemblyInfoInputs.cache
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.AssemblyInfo.cs
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.csproj.CoreCompileInputs.cache
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.dll
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\refint\DbMigrator.dll
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\DbMigrator.pdb
+F:\srcs\DepersonalizationPersonalData\DbMigrator\obj\Release\net6.0\ref\DbMigrator.dll
