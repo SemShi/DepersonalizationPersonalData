@@ -30,6 +30,7 @@
         {
             statusStrip1 = new StatusStrip();
             tsLabel = new ToolStripStatusLabel();
+            tsLabelPermissions = new ToolStripStatusLabel();
             menuStrip1 = new MenuStrip();
             настройкиToolStripMenuItem = new ToolStripMenuItem();
             msChangeUser = new ToolStripMenuItem();
@@ -43,7 +44,7 @@
             tbLogin = new TextBox();
             rtbInfo = new RichTextBox();
             splitContainer3 = new SplitContainer();
-            dataGridView1 = new DataGridView();
+            dgvPersonalizeData = new DataGridView();
             splitContainer4 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label3 = new Label();
@@ -74,7 +75,6 @@
             btDelete = new Button();
             btSave = new Button();
             btAdd = new Button();
-            tsLabelPermissions = new ToolStripStatusLabel();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -89,7 +89,7 @@
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPersonalizeData).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer4).BeginInit();
             splitContainer4.Panel1.SuspendLayout();
             splitContainer4.Panel2.SuspendLayout();
@@ -112,6 +112,11 @@
             tsLabel.Name = "tsLabel";
             tsLabel.Size = new Size(109, 17);
             tsLabel.Text = "Войдите в систему";
+            // 
+            // tsLabelPermissions
+            // 
+            tsLabelPermissions.Name = "tsLabelPermissions";
+            tsLabelPermissions.Size = new Size(0, 17);
             // 
             // menuStrip1
             // 
@@ -254,7 +259,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(dataGridView1);
+            splitContainer3.Panel1.Controls.Add(dgvPersonalizeData);
             // 
             // splitContainer3.Panel2
             // 
@@ -263,19 +268,20 @@
             splitContainer3.SplitterDistance = 579;
             splitContainer3.TabIndex = 2;
             // 
-            // dataGridView1
+            // dgvPersonalizeData
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.BackgroundColor = Color.AliceBlue;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(575, 400);
-            dataGridView1.TabIndex = 1;
+            dgvPersonalizeData.AllowUserToAddRows = false;
+            dgvPersonalizeData.AllowUserToDeleteRows = false;
+            dgvPersonalizeData.BackgroundColor = Color.AliceBlue;
+            dgvPersonalizeData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPersonalizeData.Dock = DockStyle.Fill;
+            dgvPersonalizeData.Location = new Point(0, 0);
+            dgvPersonalizeData.Name = "dgvPersonalizeData";
+            dgvPersonalizeData.ReadOnly = true;
+            dgvPersonalizeData.RowTemplate.Height = 25;
+            dgvPersonalizeData.Size = new Size(575, 400);
+            dgvPersonalizeData.TabIndex = 1;
+            dgvPersonalizeData.CellClick += dgvPersonalizeData_CellClick;
             // 
             // splitContainer4
             // 
@@ -574,6 +580,7 @@
             btSave.TabIndex = 1;
             btSave.Text = "Сохранить";
             btSave.UseVisualStyleBackColor = true;
+            btSave.Click += btSave_Click;
             // 
             // btAdd
             // 
@@ -584,11 +591,7 @@
             btAdd.TabIndex = 0;
             btAdd.Text = "Добавить";
             btAdd.UseVisualStyleBackColor = true;
-            // 
-            // tsLabelPermissions
-            // 
-            tsLabelPermissions.Name = "tsLabelPermissions";
-            tsLabelPermissions.Size = new Size(0, 17);
+            btAdd.Click += btAdd_Click;
             // 
             // MainForm
             // 
@@ -618,7 +621,7 @@
             splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPersonalizeData).EndInit();
             splitContainer4.Panel1.ResumeLayout(false);
             splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer4).EndInit();
@@ -646,7 +649,7 @@
         private Label label1;
         private TextBox tbLogin;
         private RichTextBox rtbInfo;
-        private DataGridView dataGridView1;
+        private DataGridView dgvPersonalizeData;
         private MaskedTextBox tbPassword;
         private SplitContainer splitContainer3;
         private SplitContainer splitContainer4;

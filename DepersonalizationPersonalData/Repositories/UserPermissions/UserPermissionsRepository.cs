@@ -24,8 +24,10 @@ SELECT
     ""Permission_id"" as {nameof(UserPermission.Permission_id)},
     ""UName"" as {nameof(UserPermission.UName)},
     ""DEdit"" as {nameof(UserPermission.DEdit)}
+FROM
+    ""user_permissions""
 WHERE
-    ""User_id""={guid}
+    ""User_id""='{guid}'
 ".Trim();
 
             using (var connection = await _postgresDatabaseFactory.Open())

@@ -17,5 +17,11 @@ namespace DepersonalizationPersonalData.Models.Helpers
             Name = $"{user.FirstName} {user.LastName}";
             Permissions = permission;
         }
+
+        public bool IsUserCanSeeAllData()
+            => Permissions.Where(x => x.Permission_id == 2).Any();
+        public bool IsUserCanEditData()
+            => Permissions.Where(x => x.Permission_id == 3).Any();
+
     }
 }
