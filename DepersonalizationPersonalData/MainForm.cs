@@ -41,7 +41,7 @@ namespace DepersonalizationPersonalData
             _cfg = cfg;
             _currentSession = currentSession;
             _personalizeDataRepository = personalizeDataRepository;
-            
+
             splitContainer3.Panel2Collapsed = true;
 
             tbLastName.TextChanged += UpdateCell;
@@ -127,7 +127,31 @@ namespace DepersonalizationPersonalData
 
         private void btAdd_Click(object sender, EventArgs e)
         {
+            var rows = new List<PersonalizeData>();
+            if (dgvPersonalizeData.Rows.Count != 0)
+            {
+                for (int i = 0; i < dgvPersonalizeData.Rows.Count; i++)
+                {
+                    rows.Add((PersonalizeData)dgvPersonalizeData.Rows[i].DataBoundItem);
+                }
+            }
+            rows.Add(new PersonalizeData());
+            dgvPersonalizeData.DataSource = rows;
+            _currentRow = rows.Last();
+            dgvPersonalizeData.CurrentCell = dgvPersonalizeData.Rows[rows.Count - 1].Cells[2];
 
+            tbFirstName.Text = string.Empty;
+            tbLastName.Text = string.Empty;
+            tbMiddleName.Text = string.Empty;
+            tbBirthday.Text = string.Empty;
+            tbCountry.Text = string.Empty;
+            tbArea.Text = string.Empty;
+            tbCity.Text = string.Empty;
+            tbStreet.Text = string.Empty;
+            tbHome.Text = string.Empty;
+            tbBuilding.Text = string.Empty;
+            tbFlat.Text = string.Empty;
+            tbPhone.Text = string.Empty;
         }
 
         private void FillDictionary(PersonalizeData model)
@@ -181,6 +205,12 @@ namespace DepersonalizationPersonalData
             model.Flat = !int.TryParse(tbFlat.Text, out int flat) ? 0 : flat;
             model.Phone = tbPhone.Text;
 
+            if (!isGuidExists)
+                if (!model.ValidateModel(out string msg))
+                {
+                    MessageBox.Show(msg, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             bool result = false;
             FillDictionary(model);
             if (isGuidExists)
@@ -193,7 +223,7 @@ namespace DepersonalizationPersonalData
                 MessageBox.Show("Данные успешно сохранены!", "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadTable();
             }
-            SetDefaultValuesToDictionary();    
+            SetDefaultValuesToDictionary();
         }
 
         private async void LoadTable()
@@ -248,7 +278,7 @@ namespace DepersonalizationPersonalData
                 tbFlat.PlaceholderText = "Информация недоступна";
                 tbPhone.PlaceholderText = "Информация недоступна";
             }
-            
+
         }
 
         private void dgvPersonalizeData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -300,7 +330,7 @@ namespace DepersonalizationPersonalData
 
         private void UpdateCell(object sender, EventArgs e)
         {
-            if(dgvPersonalizeData.Rows.Count == 0) return;
+            if (dgvPersonalizeData.Rows.Count == 0) return;
             switch (((TextBox)sender).Name)
             {
                 case "tbLastName":
@@ -354,6 +384,9 @@ namespace DepersonalizationPersonalData
             dataGridView.Columns.Insert(colNum, textBoxColumn);
         }
 
-        
+        private void dgvPersonalizeData_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+
+        }
     }
 }

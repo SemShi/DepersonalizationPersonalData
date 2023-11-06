@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Reflection;
 
 namespace DepersonalizationPersonalData.Models.Helpers
 {
@@ -89,6 +90,73 @@ namespace DepersonalizationPersonalData.Models.Helpers
                     return $"{Flat}";
             }
             return "";
+        }
+
+        public bool ValidateModel(out string msg)
+        {
+            msg = "";
+            if (string.IsNullOrWhiteSpace(FirstName))
+            {
+                msg = "Заполните значение \"Имя\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(LastName))
+            {
+                msg = "Заполните значение \"Фамилия\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(MiddleName))
+            {
+                msg = "Заполните значение \"Отчество\"";
+                return false;
+            }
+            if (BirthDayToDataBaseFormat == "0001-01-01")
+            {
+                msg = "Заполните значение \"Дата рождения\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Country))
+            {
+                msg = "Заполните значение \"Страна\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Area))
+            {
+                msg = "Заполните значение \"Область\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(City))
+            {
+                msg = "Заполните значение \"Город\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Phone))
+            {
+                msg = "Заполните значение \"Телефон\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Street))
+            {
+                msg = "Заполните значение \"Улица\"";
+                return false;
+            }
+            if (Home == 0)
+            {
+                msg = "Заполните значение \"Дом\"";
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(Building))
+            {
+                msg = "Заполните значение \"Корпус\"";
+                return false;
+            }
+            if (Flat == 0)
+            {
+                msg = "Заполните значение \"Квартира\"";
+                return false;
+            }
+
+            return true;
         }
     }
 }

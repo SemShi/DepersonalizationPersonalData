@@ -282,6 +282,7 @@
             dgvPersonalizeData.Size = new Size(575, 400);
             dgvPersonalizeData.TabIndex = 1;
             dgvPersonalizeData.CellClick += dgvPersonalizeData_CellClick;
+            dgvPersonalizeData.DataError += dgvPersonalizeData_DataError;
             // 
             // splitContainer4
             // 

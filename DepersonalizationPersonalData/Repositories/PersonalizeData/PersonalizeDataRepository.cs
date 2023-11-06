@@ -122,17 +122,17 @@ ORDER BY
 INSERT INTO 
     ""personalize_data_tbl1"" (""Data_id"", ""FirstName"", ""MiddleName"", ""LastName"", ""Birthday"")
 VALUES (
-    {updateModel.Data_id},
+    '{updateModel.Data_id}',
     '{updateModel.FirstName}',
     '{updateModel.MiddleName}',
     '{updateModel.LastName}',
-    '{updateModel.Birthday}')
+    '{updateModel.BirthDayToDataBaseFormat}')
 ".Trim();
             var queryTbl2 = $@"
 INSERT INTO 
     ""personalize_data_tbl2"" (""Data_id"", ""Country"", ""Area"", ""City"", ""Phone"")
 VALUES (
-    {updateModel.Data_id},
+    '{updateModel.Data_id}',
     '{updateModel.Country}',
     '{updateModel.Area}',
     '{updateModel.City}',
@@ -142,7 +142,7 @@ VALUES (
 INSERT INTO 
     ""personalize_data_tbl3"" (""Data_id"", ""Street"", ""Home"", ""Building"", ""Flat"")
 VALUES (
-    {updateModel.Data_id},
+    '{updateModel.Data_id}',
     '{updateModel.Street}',
     {updateModel.Home},
     '{updateModel.Building}',
